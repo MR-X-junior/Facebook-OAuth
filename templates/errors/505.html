@@ -1,0 +1,44 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block title %}500 - Internal Server Error{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="header-card">
+    <div class="status-icon error"><i class="fa-solid fa-triangle-exclamation"></i></div>
+    <h1>500 - Server Error</h1>
+    <p class="subtitle">Terjadi kesalahan pada server</p>
+  </div>
+  
+  <div class="card full-width">
+    <div class="card-header">
+      <div class="card-icon">🛠️</div>
+      <div class="card-title">Informasi Error</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Apa yang terjadi?</div>
+      <div class="info-value">Server mengalami masalah internal dan tidak dapat memproses permintaan Anda</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Apa yang harus dilakukan?</div>
+      <div class="info-value">
+        <ul style="margin: 10px 0; padding-left: 20px;">
+          <li>Coba refresh halaman (F5)</li>
+          <li>Tunggu beberapa saat dan coba lagi</li>
+          <li>Jika masalah berlanjut, hubungi support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <a href="/" class="back-link">
+    Kembali ke Halaman Utama
+  </a>
+</div>
+{% endblock %}

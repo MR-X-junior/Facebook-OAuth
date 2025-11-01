@@ -1,0 +1,69 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block title %}Contact - Facebook OAuth{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 700px;">
+    <div class="modal-header" style="border-radius: 20px 20px 0 0;">
+        <h1 style="color: white;"><i class="fa-solid fa-phone"></i> Hubungi Kami</h1>
+        <p style="color: rgba(255,255,255,0.9);">Kami siap membantu Anda</p>
+    </div>
+    
+    <div class="content">
+        <div class="info-box">
+            <h3><i class="fa-solid fa-comment-dots"></i> Butuh Bantuan?</h3>
+            <p>Jika Anda memiliki pertanyaan, masalah teknis, atau saran, jangan ragu untuk menghubungi kami melalui salah satu metode di bawah ini.</p>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="contact-details">
+                    <h3>Email</h3>
+                    <p>Kirim email ke:<br>
+                    <a href="mailto:termux.indonesia01@gmail.com">termux.indonesia01@gmail.com</a></p>
+                    <p style="margin-top: 8px; font-size: 12px; color: #718096;">Respons dalam 1-2 hari kerja</p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="contact-details">
+                    <h3>WhatsApp</h3>
+                    <p>Chat langsung dengan kami:<br>
+                    <a href="https://wa.me/6285754629509?text=Assalamualaikum%0ASaya%20mempunyai%20pertanyaan%20tentang%20Facebook%20Oauth" target="_blank">+6285754629509</a></p>
+                    <p style="margin-top: 8px; font-size: 12px; color: #718096;">Respons lebih cepat</p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+                <div class="contact-details">
+                    <h3>GitHub</h3>
+                    <p>Laporkan bug atau request fitur:<br>
+                    <a href="https://github.com/MR-X-junior/Facebook-OAuth/issues" target="_blank">GitHub Issues</a></p>
+                    <p style="margin-top: 8px; font-size: 12px; color: #718096;">Untuk masalah teknis</p>
+                </div>
+            </div>
+                    
+        <div class="info-box">
+            <h3><i class="fa-solid fa-clock"></i> Jam Operasional</h3>
+            <p><strong>Email & WhatsApp:</strong> Senin - Jumat, 09:00 - 17:00 WIB<br>
+            <strong>GitHub Issues:</strong> Direspon sesegera mungkin</p>
+        </div>
+        
+        <div class="info-box" style="background: #fff5f5; border-left-color: #fc8181;">
+            <h3 style="color: #c53030;"><i class="fa-solid fa-triangle-exclamation"></i> Catatan Penting</h3>
+            <p>Kami TIDAK akan pernah meminta password Facebook Anda atau informasi sensitif lainnya. Jika ada yang mengatasnamakan kami meminta informasi tersebut, harap laporkan segera.</p>
+        </div>
+        
+        <a href="/" class="back-link" style="color: #667eea; background: #f7fafc;">
+             Kembali ke Halaman Utama
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block title %}404 - Page Not Found{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="header-card">
+    <div class="status-icon error">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="white"/>
+      </svg>
+    </div>
+    <h1>404 - Halaman Tidak Ditemukan</h1>
+    <p class="subtitle">Maaf, halaman yang Anda cari tidak ada</p>
+  </div>
+  
+  <div class="card full-width">
+    <div class="card-header">
+      <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <div class="card-title">Apa yang bisa Anda lakukan?</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Periksa URL</div>
+      <div class="info-value">Pastikan URL yang Anda masukkan sudah benar</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Kembali ke Home</div>
+      <div class="info-value">Gunakan tombol di bawah untuk kembali ke halaman utama</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Hubungi Kami</div>
+      <div class="info-value">Jika masalah berlanjut, <a href="/contact" style="color: #667eea;">hubungi support</a></div>
+    </div>
+  </div>
+  
+  <a href="/" class="back-link">
+    Kembali ke Halaman Utama
+  </a>
+</div>
+{% endblock %}

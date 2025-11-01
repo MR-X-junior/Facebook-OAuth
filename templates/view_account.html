@@ -1,0 +1,26 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block title %}Account Details - {{ user_id }}{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/countdown.js') }}"></script>
+<script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+<script>
+  const userId = "{{ user_id }}";
+  window.addEventListener('DOMContentLoaded', () => {
+    loadAndValidateAccount(userId);
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="loading-container">
+  <div class="spinner"></div>
+  <h2>Memuat data akun...</h2>
+  <p>Mohon tunggu sebentar</p>
+</div>
+{% endblock %}

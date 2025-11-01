@@ -1,0 +1,44 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block title %}400 - Bad Request{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="header-card">
+    <div class="status-icon error"><i class="fa-solid fa-circle-xmark"></i></div>
+    <h1>400 - Permintaan Tidak Valid</h1>
+    <p class="subtitle">Server tidak dapat memproses permintaan Anda</p>
+  </div>
+  
+  <div class="card full-width">
+    <div class="card-header">
+      <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+      <div class="card-title">Informasi</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Apa yang terjadi?</div>
+      <div class="info-value">Permintaan yang Anda kirim tidak dapat dipahami oleh server</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Solusi</div>
+      <div class="info-value">
+        <ul style="margin: 10px 0; padding-left: 20px;">
+          <li>Periksa kembali data yang Anda masukkan</li>
+          <li>Pastikan URL sudah benar</li>
+          <li>Coba lagi dari halaman utama</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <a href="/" class="back-link">
+    Kembali ke Halaman Utama
+  </a>
+</div>
+{% endblock %}

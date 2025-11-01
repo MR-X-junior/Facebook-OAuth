@@ -1,0 +1,116 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy - Facebook OAuth{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 900px;">
+    <div class="modal-header" style="border-radius: 20px 20px 0 0;">
+        <h1 style="color: white;"><i class="fa-solid fa-lock"></i> Kebijakan Privasi</h1>
+        <p style="color: rgba(255,255,255,0.9);">Facebook OAuth - Privacy Policy</p>
+    </div>
+    
+    <div class="content">
+        <div class="last-updated">
+            <strong>Terakhir diperbarui:</strong> 31 Oktober 2025
+        </div>
+        
+        <div class="section">
+            <h2>1. Pengantar</h2>
+            <p>Selamat datang di Facebook OAuth. Kami sangat menghormati privasi Anda dan berkomitmen untuk melindungi data pribadi Anda. Kebijakan privasi ini menjelaskan bagaimana kami menangani informasi Anda ketika menggunakan layanan kami.</p>
+        </div>
+        
+        <div class="section">
+            <h2>2. Informasi yang Kami Kumpulkan</h2>
+            <p>Ketika Anda menggunakan layanan kami, kami dapat mengakses informasi berikut melalui Facebook API:</p>
+            <ul>
+                <li><strong>Informasi Profil:</strong> Nama, User ID, email, dan foto profil</li>
+                <li><strong>Access Token:</strong> Token akses Facebook untuk autentikasi</li>
+                <li><strong>Permissions:</strong> Izin yang Anda berikan kepada aplikasi</li>
+                <li><strong>Pages Data:</strong> Informasi halaman Facebook yang Anda kelola (jika diizinkan)</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>3. Bagaimana Kami Menyimpan Data Anda</h2>
+            <div class="info-box">
+                <p><strong><i class="fa-solid fa-bolt"></i> Penyimpanan Lokal:</strong></p>
+                <p>Semua data Anda disimpan secara LOKAL di browser Anda menggunakan localStorage. Kami TIDAK menyimpan informasi pribadi Anda di server kami.</p>
+            </div>
+            
+            <h3>Apa artinya ini?</h3>
+            <ul>
+                <li>Data hanya tersimpan di perangkat Anda</li>
+                <li>Tidak ada transmisi data ke server kami</li>
+                <li>Anda memiliki kontrol penuh atas data Anda</li>
+                <li>Menghapus data browser akan menghapus semua informasi</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>4. Penggunaan Data</h2>
+            <p>Data yang kami akses digunakan untuk:</p>
+            <ul>
+                <li>Menampilkan informasi akun Anda</li>
+                <li>Menyediakan access token untuk keperluan Anda</li>
+                <li>Mengelola multiple akun Facebook</li>
+                <li>Memvalidasi status token dan akun</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>5. Keamanan Data</h2>
+            <p>Kami mengimplementasikan langkah-langkah keamanan untuk melindungi informasi Anda:</p>
+            <ul>
+                <li>Menggunakan HTTPS untuk semua koneksi</li>
+                <li>Data disimpan menggunakan localStorage browser yang aman</li>
+                <li>Tidak ada penyimpanan data di server</li>
+                <li>Validasi token dilakukan secara client-side</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Catatan Penting:</h3>
+                <p>Meskipun kami menggunakan praktik keamanan terbaik, tidak ada metode transmisi atau penyimpanan elektronik yang 100% aman. Kami tidak dapat menjamin keamanan absolut.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>6. Berbagi Data dengan Pihak Ketiga</h2>
+            <p>Kami TIDAK membagikan, menjual, atau menyewakan data pribadi Anda kepada pihak ketiga manapun. Data Anda tetap berada di browser Anda.</p>
+        </div>
+        
+        <div class="section">
+            <h2>7. Cookie dan Teknologi Pelacakan</h2>
+            <p>Aplikasi ini menggunakan localStorage browser untuk menyimpan preferensi dan data akun Anda. Kami tidak menggunakan cookie pelacakan atau teknologi iklan.</p>
+        </div>
+        
+        <div class="section">
+            <h2>8. Hak Anda</h2>
+            <p>Anda memiliki hak untuk:</p>
+            <ul>
+                <li>Mengakses data yang tersimpan di browser Anda</li>
+                <li>Menghapus semua data kapan saja dengan membersihkan localStorage browser</li>
+                <li>Mencabut akses aplikasi melalui pengaturan Facebook Anda</li>
+                <li>Menghentikan penggunaan layanan kapan saja</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>9. Perubahan Kebijakan Privasi</h2>
+            <p>Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu. Perubahan akan diposting di halaman ini dengan tanggal "Terakhir diperbarui" yang baru.</p>
+        </div>
+        
+        <div class="section">
+            <h2>10. Kontak</h2>
+            <p>Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, silakan hubungi kami melalui <a href="/contact" style="color: #667eea;">halaman kontak</a>.</p>
+        </div>
+        
+        <a href="/" class="back-link" style="color: #667eea; background: #f7fafc;">
+            Kembali ke Halaman Utama
+        </a>
+    </div>
+</div>
+{% endblock %}

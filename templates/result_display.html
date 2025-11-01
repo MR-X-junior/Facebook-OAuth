@@ -1,0 +1,215 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/countdown.js') }}"></script>
+<script src="{{ url_for('static', filename='js/accounts.js') }}"></script>
+<script>
+  // Data to save to localStorage
+  {% if not error and user_info %}
+  const accountData = {
+    user_id: "{{ user_info.id }}",
+    name: "{{ user_info.name }}",
+    email: "{{ user_info.email if user_info.email else '' }}",
+    profile_picture: "{{ profile_picture if profile_picture else '' }}",
+    access_token: "{{ access_token }}",
+    token_type: "{{ token_type }}",
+    expires_in: {{ expires_in }},
+    expiry_date: "{{ expiry_date }}",
+    expiry_timestamp: {{ expiry_timestamp }},
+    permissions: {{ all_permissions|tojson }},
+    pages: {{ pages|tojson }},
+    is_active: {{ 'true' if is_active else 'false' }},
+    last_updated: new Date().toISOString()
+  };
+  
+  // Save data when page loads
+  window.addEventListener('DOMContentLoaded', () => {
+    saveAccountToLocalStorage(accountData);
+    startCountdown();
+  });
+  {% endif %}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="header-card">
+    {% if error %}
+      <div class="status-icon error"><i class="fa-solid fa-xmark"></i></div>
+      <h1>Error</h1>
+      <p class="subtitle">{{ error_description if error_description else 'Terjadi kesalahan' }}</p>
+    {% elif not is_active %}
+      <div class="status-icon inactive"><i class="fa-solid fa-xmark"></i></div>
+      <h1>Akun Tidak Aktif</h1>
+      <p class="subtitle">Token sudah tidak valid atau kadaluarsa</p>
+    {% else %}
+      <div class="status-icon success"><i class="fa-solid fa-check"></i></div>
+      <h1>Berhasil!</h1>
+      <p class="subtitle">Access token berhasil didapatkan</p>
+    {% endif %}
+  </div>
+  
+  {% if error %}
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="card-title">Detail Error</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Error Type</div>
+        <div class="info-value">{{ error }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Deskripsi</div>
+        <div class="info-value">{{ error_description if error_description else 'Unknown error' }}</div>
+      </div>
+      {% if error_reason %}
+      <div class="info-item">
+        <div class="info-label">Alasan</div>
+        <div class="info-value">
+          {% if error_reason == 'user_denied' %}
+            Anda membatalkan proses login atau menolak izin yang diminta
+          {% else %}
+            {{ error_reason }}
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+      <div class="info-item">
+        <div class="info-label">Solusi</div>
+        <div class="info-value">
+          {% if error == 'access_denied' or error_reason == 'user_denied' %}
+            Silakan coba lagi dan setujui semua izin yang diminta oleh aplikasi
+          {% else %}
+            Silakan coba login kembali atau hubungi support jika masalah berlanjut
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% elif user_info %}
+    <div class="content-grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon"><i class="fa-solid fa-user"></i></div>
+          <div class="card-title">Informasi User</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Nama</div>
+          <div class="info-value">{{ user_info.name }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">User ID</div>
+          <div class="info-value">{{ user_info.id }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-value">{{ user_info.email if user_info.email else 'N/A' }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Status Akun</div>
+          <div class="info-value">
+            <span class="permission-badge {% if is_active %}permission-granted{% else %}permission-declined{% endif %}">
+              {% if is_active %}<i class="fa-solid fa-check"></i> Aktif{% else %}<i class="fa-solid fa-xmark"></i> Tidak Aktif{% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon"><i class="fa-solid fa-stopwatch"></i></div>
+          <div class="card-title">Token Info</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Type</div>
+          <div class="info-value">{{ token_type }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Kadaluarsa Pada</div>
+          <div class="info-value">{{ expiry_date }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Sisa Waktu (Countdown)</div>
+          <div class="info-value" id="countdown" data-expires="{{ expires_in }}" data-expiry-timestamp="{{ expiry_timestamp }}" data-user-id="{{ user_info.id }}">Menghitung...</div>
+        </div>
+      </div>
+      
+      <div class="card full-width">
+        <div class="card-header">
+          <div class="card-icon"><i class="fa-solid fa-key"></i></div>
+          <div class="card-title">Access Token</div>
+        </div>
+        <div class="token-display" id="token">{{ access_token }}</div>
+        <button class="btn btn-primary" onclick="copyToken(this)">
+          <i class="fa-solid fa-copy"></i> Salin Token
+        </button>
+      </div>
+      
+      <div class="card full-width">
+        <div class="card-header">
+          <div class="card-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="card-title">Permissions ({{ all_permissions|length }})</div>
+        </div>
+        
+        {% if all_permissions %}
+          <div class="permissions-container">
+            {% for perm in all_permissions %}
+              <span class="permission-badge {% if perm.status == 'granted' %}permission-granted{% else %}permission-declined{% endif %}">
+                {% if perm.status == 'granted' %}<i class="fa-solid fa-check"></i>{% else %}<i class="fa-solid fa-xmark"></i>{% endif %} {{ perm.permission }}
+              </span>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="alert alert-warning">
+            <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <div>Tidak ada informasi permissions</div>
+          </div>
+        {% endif %}
+      </div>
+      
+      {% if pages %}
+      <div class="card full-width">
+        <div class="card-header">
+          <div class="card-icon"><i class="fa-solid fa-file-alt"></i></div>
+          <div class="card-title">Facebook Pages ({{ pages|length }})</div>
+        </div>
+        
+        {% for page in pages %}
+        <div class="page-card">
+          <div class="page-header">
+            <div class="page-icon"><i class="fa-brands fa-facebook-f"></i></div>
+            <div>
+              <div class="page-name">{{ page.name }}</div>
+              <div style="font-size: 12px; color: #718096;">{{ page.category }}</div>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-label">Page ID</div>
+            <div class="info-value">{{ page.id }}</div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-label">Page Access Token</div>
+            <div class="token-display" style="margin-top: 8px; font-size: 11px;">{{ page.access_token }}</div>
+          </div>
+          
+          <button class="btn btn-success" onclick="copyPageToken('{{ page.access_token }}', '{{ page.name }}', this)">
+            <i class="fa-solid fa-copy"></i> Salin Page Token
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <a href="/" class="back-link">
+     Kembali ke halaman utama
+  </a>
+</div>
+{% endblock %}

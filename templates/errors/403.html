@@ -1,0 +1,38 @@
+<!--Copyright 2025 Rahmat Adha-->
+<!--Licensed under the Apache License, Version 2.0-->
+<!--Nama author tidak boleh diubah atau dihapus.-->
+
+{% extends "base.html" %}
+
+{% block title %}403 - Forbidden{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="header-card">
+    <div class="status-icon error"><i class="fa-solid fa-ban"></i></div>
+    <h1>403 - Akses Ditolak</h1>
+    <p class="subtitle">Anda tidak memiliki izin untuk mengakses halaman ini</p>
+  </div>
+  
+  <div class="card full-width">
+    <div class="card-header">
+      <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
+      <div class="card-title">Informasi</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Mengapa ini terjadi?</div>
+      <div class="info-value">Anda tidak memiliki hak akses yang diperlukan untuk melihat halaman ini</div>
+    </div>
+    
+    <div class="info-item">
+      <div class="info-label">Solusi</div>
+      <div class="info-value">Hubungi administrator jika Anda yakin seharusnya memiliki akses</div>
+    </div>
+  </div>
+  
+  <a href="/" class="back-link">
+    Kembali ke Halaman Utama
+  </a>
+</div>
+{% endblock %}
