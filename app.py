@@ -156,6 +156,11 @@ def home():
   
   return render_template('home.html', auth_url=auth_url)
 
+@app.route('/data-deletion')
+def data_deletion():
+  """Data Deletion Instructions Page"""
+  return render_template('data-deletion.html')
+
 @app.route('/privacy')
 def privacy():
   """Privacy Policy Page"""

@@ -1,0 +1,509 @@
+{% extends "base.html" %}
+
+{% block title %}Instruksi Penghapusan Data - Facebook OAuth{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="header-card">
+    <div class="status-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+      <i class="fa-solid fa-trash-can"></i>
+    </div>
+    <h1>Instruksi Penghapusan Data</h1>
+    <p class="subtitle">Cara menghapus data Anda dari aplikasi kami</p>
+  </div>
+
+  <div class="content-grid">
+    <!-- Pemberitahuan Penting -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="card-title">Informasi Penting</div>
+      </div>
+      <div class="alert alert-info">
+        <span class="alert-icon"><i class="fa-solid fa-shield-halved"></i></span>
+        <div>
+          <strong>Privasi Anda Adalah Prioritas:</strong> Aplikasi ini TIDAK menyimpan data pribadi Anda di server kami. Semua data disimpan secara lokal di localStorage browser Anda.
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Yang Kami Kumpulkan -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+        <div class="card-title">Data Yang Kami Kumpulkan</div>
+      </div>
+      <p style="color: #718096; margin-bottom: 16px;">
+        Aplikasi kami menyimpan informasi berikut <strong>secara lokal di browser Anda</strong>:
+      </p>
+      <div class="info-item">
+        <div class="info-label">Informasi Pribadi</div>
+        <div class="info-value">
+          <ul style="margin: 0; padding-left: 20px; color: #4a5568;">
+            <li>Nama Facebook</li>
+            <li>User ID Facebook</li>
+            <li>Alamat Email (jika diberikan)</li>
+            <li>URL Foto Profil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Token Akses</div>
+        <div class="info-value">
+          <ul style="margin: 0; padding-left: 20px; color: #4a5568;">
+            <li>Facebook Access Token</li>
+            <li>Tipe Token dan Tanggal Kadaluarsa</li>
+            <li>Token Akses Page (jika ada)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Data Permissions</div>
+        <div class="info-value">
+          <ul style="margin: 0; padding-left: 20px; color: #4a5568;">
+            <li>Daftar permissions yang diberikan</li>
+            <li>Informasi Facebook Pages</li>
+            <li>Status permission (granted/declined)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-warning" style="margin-top: 16px;">
+        <span class="alert-icon"><i class="fa-solid fa-exclamation-triangle"></i></span>
+        <div>
+          <strong>Catatan:</strong> Data ini disimpan HANYA di localStorage browser Anda dan TIDAK dikirim atau disimpan di server kami.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cara Menghapus Data Anda -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-trash-arrow-up"></i></div>
+        <div class="card-title">Cara Menghapus Data Anda</div>
+      </div>
+      
+      <!-- Metode 1: Dalam Aplikasi -->
+      <div style="margin-bottom: 24px;">
+        <h3 style="color: #1a202c; margin-bottom: 12px; font-size: 18px;">
+          <i class="fa-solid fa-1"></i> Metode 1: Hapus Melalui Aplikasi
+        </h3>
+        <p style="color: #718096; margin-bottom: 12px;">
+          Cara termudah untuk menghapus data Anda adalah langsung dari aplikasi kami:
+        </p>
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <strong>Buka Halaman Utama</strong>
+              <p>Navigasi ke halaman utama dimana semua akun Anda terdaftar</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <strong>Klik Pada Akun Anda</strong>
+              <p>Klik pada card akun untuk melihat detail akun</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <strong>Hapus Akun</strong>
+              <p>Scroll ke bawah dan klik tombol merah "Hapus Akun"</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <strong>Konfirmasi Penghapusan</strong>
+              <p>Konfirmasi pilihan Anda pada dialog popup yang muncul</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metode 2: localStorage Browser -->
+      <div style="margin-bottom: 24px;">
+        <h3 style="color: #1a202c; margin-bottom: 12px; font-size: 18px;">
+          <i class="fa-solid fa-2"></i> Metode 2: Hapus Data Browser
+        </h3>
+        <p style="color: #718096; margin-bottom: 12px;">
+          Anda juga dapat menghapus semua data dengan membersihkan localStorage browser:
+        </p>
+        
+        <!-- Instruksi Chrome -->
+        <div class="browser-instructions">
+          <div class="browser-header">
+            <i class="fa-brands fa-chrome"></i>
+            <strong>Google Chrome</strong>
+          </div>
+          <ol style="margin: 0; padding-left: 20px; color: #4a5568;">
+            <li>Tekan <kbd>F12</kbd> untuk membuka Developer Tools</li>
+            <li>Buka tab <strong>Application</strong></li>
+            <li>Di sidebar kiri, expand <strong>Local Storage</strong></li>
+            <li>Klik pada nama domain</li>
+            <li>Cari dan hapus key <code>fb_accounts</code></li>
+            <li>Atau klik <strong>Clear All</strong> untuk menghapus semua data</li>
+          </ol>
+        </div>
+
+        <!-- Instruksi Firefox -->
+        <div class="browser-instructions">
+          <div class="browser-header">
+            <i class="fa-brands fa-firefox"></i>
+            <strong>Mozilla Firefox</strong>
+          </div>
+          <ol style="margin: 0; padding-left: 20px; color: #4a5568;">
+            <li>Tekan <kbd>F12</kbd> untuk membuka Developer Tools</li>
+            <li>Buka tab <strong>Storage</strong></li>
+            <li>Expand <strong>Local Storage</strong></li>
+            <li>Klik pada nama domain</li>
+            <li>Klik kanan pada <code>fb_accounts</code> dan pilih <strong>Delete</strong></li>
+          </ol>
+        </div>
+
+        <!-- Instruksi Safari -->
+        <div class="browser-instructions">
+          <div class="browser-header">
+            <i class="fa-brands fa-safari"></i>
+            <strong>Safari</strong>
+          </div>
+          <ol style="margin: 0; padding-left: 20px; color: #4a5568;">
+            <li>Aktifkan menu Developer: <strong>Preferences</strong> → <strong>Advanced</strong> → centang "Show Develop menu"</li>
+            <li>Buka <strong>Develop</strong> → <strong>Show Web Inspector</strong></li>
+            <li>Klik tab <strong>Storage</strong></li>
+            <li>Pilih <strong>Local Storage</strong></li>
+            <li>Hapus entry <code>fb_accounts</code></li>
+          </ol>
+        </div>
+
+        <!-- Instruksi Edge -->
+        <div class="browser-instructions">
+          <div class="browser-header">
+            <i class="fa-brands fa-edge"></i>
+            <strong>Microsoft Edge</strong>
+          </div>
+          <ol style="margin: 0; padding-left: 20px; color: #4a5568;">
+            <li>Tekan <kbd>F12</kbd> untuk membuka Developer Tools</li>
+            <li>Buka tab <strong>Application</strong></li>
+            <li>Expand <strong>Local Storage</strong> di sidebar kiri</li>
+            <li>Klik pada domain</li>
+            <li>Hapus <code>fb_accounts</code> atau klik <strong>Clear All</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Metode 3: Request Penghapusan -->
+      <div>
+        <h3 style="color: #1a202c; margin-bottom: 12px; font-size: 18px;">
+          <i class="fa-solid fa-3"></i> Metode 3: Request Penghapusan Data
+        </h3>
+        <p style="color: #718096; margin-bottom: 12px;">
+          Jika Anda memerlukan bantuan atau ingin memastikan penghapusan data secara menyeluruh:
+        </p>
+        <div class="info-item">
+          <div class="info-label">Hubungi Kami</div>
+          <div class="info-value">
+            <p style="margin-bottom: 8px;">Kirim email dengan permintaan Anda ke:</p>
+            <a href="mailto:termux.indonesia01@gmail.com?subject=Permintaan Penghapusan Data" 
+               class="btn btn-primary" 
+               style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+              <i class="fa-solid fa-envelope"></i>
+              termux.indonesia01@gmail.com
+            </a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Sertakan Dalam Email</div>
+          <div class="info-value">
+            <ul style="margin: 0; padding-left: 20px; color: #4a5568;">
+              <li>Subject: "Permintaan Penghapusan Data"</li>
+              <li>Facebook User ID Anda (jika diketahui)</li>
+              <li>Alamat email yang digunakan dengan aplikasi</li>
+              <li>Deskripsi singkat permintaan Anda</li>
+            </ul>
+          </div>
+        </div>
+        <div class="alert alert-success" style="margin-top: 16px;">
+          <span class="alert-icon"><i class="fa-solid fa-clock"></i></span>
+          <div>
+            <strong>Waktu Respon:</strong> Kami akan merespon permintaan Anda dalam waktu maksimal 48 jam.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cabut Akses Aplikasi di Facebook -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-brands fa-facebook"></i></div>
+        <div class="card-title">Cabut Akses Aplikasi di Facebook</div>
+      </div>
+      <p style="color: #718096; margin-bottom: 16px;">
+        Untuk menghapus akses aplikasi ini ke data Facebook Anda secara permanen:
+      </p>
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <strong>Buka Pengaturan Facebook</strong>
+            <p>Kunjungi <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer">facebook.com/settings?tab=applications</a></p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <strong>Cari Aplikasi</strong>
+            <p>Cari "Facebook OAuth Token Generator" atau nama aplikasi Anda di daftar</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <strong>Hapus Akses</strong>
+            <p>Klik tombol "Hapus" di sebelah aplikasi</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <strong>Konfirmasi Penghapusan</strong>
+            <p>Konfirmasi pilihan Anda pada dialog popup yang muncul</p>
+          </div>
+        </div>
+      </div>
+      <a href="https://www.facebook.com/settings?tab=applications" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="btn btn-primary" 
+         style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; margin-top: 16px;">
+        <i class="fa-brands fa-facebook"></i>
+        Buka Pengaturan Aplikasi Facebook
+      </a>
+    </div>
+
+    <!-- Yang Terjadi Setelah Penghapusan -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-circle-question"></i></div>
+        <div class="card-title">Yang Terjadi Setelah Penghapusan</div>
+      </div>
+      <div class="deletion-effects">
+        <div class="effect-item">
+          <div class="effect-icon success">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <div class="effect-content">
+            <strong>Penghapusan Seketika</strong>
+            <p>Semua data Anda dihapus seketika dari localStorage browser</p>
+          </div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-icon success">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <div class="effect-content">
+            <strong>Tidak Ada Data di Server</strong>
+            <p>Karena kami tidak menyimpan data di server, tidak ada yang perlu dihapus dari sisi server</p>
+          </div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-icon success">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <div class="effect-content">
+            <strong>Token Tidak Valid</strong>
+            <p>Semua access token menjadi tidak berguna setelah penghapusan</p>
+          </div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-icon warning">
+            <i class="fa-solid fa-info-circle"></i>
+          </div>
+          <div class="effect-content">
+            <strong>Perlu Login Ulang</strong>
+            <p>Anda perlu login kembali jika ingin menggunakan aplikasi di masa mendatang</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kebijakan Penyimpanan Data -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-file-contract"></i></div>
+        <div class="card-title">Kebijakan Penyimpanan Data</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Lokasi Penyimpanan</div>
+        <div class="info-value">Semua data disimpan di localStorage browser (hanya di sisi client)</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Penyimpanan Server</div>
+        <div class="info-value">Kami TIDAK menyimpan data pengguna apapun di server kami</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Transmisi Data</div>
+        <div class="info-value">Data hanya ditransmisikan antara browser Anda dan Facebook API</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Periode Penyimpanan</div>
+        <div class="info-value">Data tersimpan hingga Anda menghapusnya secara manual atau membersihkan data browser</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Akses Pihak Ketiga</div>
+        <div class="info-value">Tidak ada pihak ketiga yang memiliki akses ke data Anda</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Enkripsi</div>
+        <div class="info-value">Koneksi menggunakan HTTPS untuk transmisi data yang aman</div>
+      </div>
+    </div>
+
+    <!-- Pertanyaan Umum -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-question-circle"></i></div>
+        <div class="card-title">Pertanyaan Umum (FAQ)</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-q"></i>
+          <strong>Apakah data saya benar-benar aman?</strong>
+        </div>
+        <div class="faq-answer">
+          Ya, sangat aman. Data Anda hanya tersimpan di localStorage browser Anda sendiri dan tidak pernah dikirim ke server kami. Kami menerapkan HTTPS untuk semua koneksi dan berbagai security measures lainnya.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-q"></i>
+          <strong>Berapa lama proses penghapusan data?</strong>
+        </div>
+        <div class="faq-answer">
+          Penghapusan data bersifat instant. Begitu Anda menghapus akun dari aplikasi atau membersihkan localStorage browser, data langsung terhapus seketika.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-q"></i>
+          <strong>Apakah saya bisa menggunakan aplikasi lagi setelah menghapus data?</strong>
+        </div>
+        <div class="faq-answer">
+          Ya, tentu saja. Anda dapat login kembali kapan saja dan data baru akan tersimpan. Penghapusan data tidak memblokir akses Anda ke aplikasi.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-q"></i>
+          <strong>Apakah Facebook masih memiliki data saya setelah penghapusan?</strong>
+        </div>
+        <div class="faq-answer">
+          Data yang tersimpan di Facebook dikontrol oleh Facebook, bukan oleh aplikasi kami. Untuk menghapus data dari Facebook, Anda perlu melakukannya melalui pengaturan Facebook atau mencabut akses aplikasi.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-q"></i>
+          <strong>Bagaimana jika saya menggunakan aplikasi di beberapa browser?</strong>
+        </div>
+        <div class="faq-answer">
+          Data disimpan per browser. Jika Anda menggunakan aplikasi di Chrome dan Firefox, data tersimpan terpisah. Anda perlu menghapus data di masing-masing browser secara terpisah.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-q"></i>
+          <strong>Apakah token saya masih valid setelah penghapusan dari aplikasi?</strong>
+        </div>
+        <div class="faq-answer">
+          Token tetap valid di sisi Facebook sampai expired atau Anda mencabut akses aplikasi. Namun, token yang dihapus dari aplikasi kami tidak dapat digunakan lagi dalam aplikasi ini kecuali Anda login ulang.
+        </div>
+      </div>
+    </div>
+
+    <!-- Informasi Kontak -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon"><i class="fa-solid fa-address-card"></i></div>
+        <div class="card-title">Kontak & Dukungan</div>
+      </div>
+      <p style="color: #718096; margin-bottom: 16px;">
+        Jika Anda memiliki pertanyaan atau kekhawatiran tentang penghapusan data:
+      </p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="contact-info">
+            <strong>Email</strong>
+            <a href="mailto:termux.indonesia01@gmail.com">termux.indonesia01@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="contact-info">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/6285754629509" target="_blank">+62 857-5462-9509</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div class="contact-info">
+            <strong>GitHub</strong>
+            <a href="https://github.com/MR-X-junior/Facebook-OAuth/issues" target="_blank">Laporkan Issue</a>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-info" style="margin-top: 16px;">
+        <span class="alert-icon"><i class="fa-solid fa-headset"></i></span>
+        <div>
+          <strong>Waktu Operasional:</strong> Kami akan merespon pertanyaan Anda dalam waktu 1-2 hari kerja. Untuk permintaan mendesak, silakan hubungi via WhatsApp.
+        </div>
+      </div>
+    </div>
+
+    <!-- Komitmen Privasi -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+          <i class="fa-solid fa-shield-heart"></i>
+        </div>
+        <div class="card-title">Komitmen Privasi Kami</div>
+      </div>
+      <p style="color: #4a5568; font-size: 15px; line-height: 1.7;">
+        Kami berkomitmen untuk melindungi privasi Anda. Aplikasi ini dibangun dengan prinsip <strong>privacy-first</strong>, dimana semua data Anda disimpan secara lokal di device Anda. Kami tidak mengumpulkan, menyimpan, atau membagikan data pribadi Anda ke pihak manapun. Hak Anda untuk menghapus data adalah prioritas kami, dan kami menyediakan berbagai cara mudah untuk melakukannya.
+      </p>
+      <div style="margin-top: 16px; padding: 16px; background: rgb(230, 255, 250); border-radius: 10px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+          <i class="fa-solid fa-check-circle" style="color: #48bb78; font-size: 20px;"></i>
+          <strong style="color: #1a202c;">Tidak ada tracking atau analytics</strong>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+          <i class="fa-solid fa-check-circle" style="color: #48bb78; font-size: 20px;"></i>
+          <strong style="color: #1a202c;">Tidak ada iklan atau cookies pihak ketiga</strong>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <i class="fa-solid fa-check-circle" style="color: #48bb78; font-size: 20px;"></i>
+          <strong style="color: #1a202c;">Data 100% di kontrol Anda</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="/" class="back-link">
+    Kembali ke halaman utama
+  </a>
+</div>
+{% endblock %}
