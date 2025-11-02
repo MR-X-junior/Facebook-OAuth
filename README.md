@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Facebook OAuth Logo](https://raw.githubusercontent.com/MR-X-junior/Facebook-OAuth/refs/heads/main/static/icon/logo.webp)
+<img src="https://raw.githubusercontent.com/MR-X-junior/Facebook-OAuth/refs/heads/main/static/icon/logo.webp" alt="Facebook OAuth Logo" width="200">
 
 > *"Dapatkan token Facebook dengan mudah dan cepat!"* 🚀
 
